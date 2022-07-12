@@ -117,3 +117,45 @@ owenDict[10] = "owen10"
 
 print(owenDict.removeValue(forKey: 10) ?? "nil!")
 print(owenDict.removeValue(forKey: 11) ?? "nil!")
+
+// Set
+// Type interface result : Array
+// wrong
+//var set = ["owen1", "owen2", "owen3"]
+// correct
+var owenSet: Set<String> = ["owen1", "owen2", "owen3"]
+owenSet.insert("owen4")
+owenSet.insert("owen5")
+owenSet.insert("owen6")
+
+print(owenSet.remove("owen6") ?? "nil!")
+print(owenSet.remove("owen7") ?? "nil!")
+
+let aSet: Set<String> = ["owen1", "owen2", "owen3"]
+let bSet: Set<String> = ["owen2", "owen3", "owen4"]
+
+// Intersection
+let intersectSet = aSet.intersection(bSet)
+print(intersectSet)
+
+// Exclusive or
+let exclusiveOrSet = aSet.symmetricDifference(bSet)
+print(exclusiveOrSet)
+
+// Union
+let unionSet = aSet.union(bSet)
+print(unionSet)
+
+// Subtract
+let subtractSet = aSet.subtracting(bSet)
+print(subtractSet)
+
+// Set calculation
+let bird: Set<String> = ["pigeon", "chicken", "wild goose"]
+let mammal: Set<String> = ["lion", "tiger", "bear"]
+let animal: Set<String> = bird.union(mammal)
+
+print(bird.isDisjoint(with: mammal)) // bird - mammal is disjoint sets?
+print(bird.isSubset(of: animal)) // bird is subset of animal?
+print(animal.isSuperset(of: mammal)) // animal is superset of mammal?
+print(animal.isSuperset(of: bird)) // animal is superset of bird?
